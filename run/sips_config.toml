@@ -1,0 +1,7 @@
+# This file contains settings for the UI to load upon startup
+
+[display_settings]
+font_scaling_factor = 1.0
+window_width = 1920
+window_height = 1080
+enable_auto_image_resize = true
