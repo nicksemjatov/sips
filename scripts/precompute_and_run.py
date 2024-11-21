@@ -57,3 +57,7 @@ for j in tqdm(range(image_stack.shape[2]), ncols=75):
 # image_stack = image_stack[y_top:y_bot, x_left:x_right, :]
 
 measurement = SIPS(image_stack, frame_rate, pixel_size, flat=flat_field_average, dark=dark_field_average)
+
+# bake pre-processing settings into image array for further processing
+# image_stack = measurement.bake_settings_to_array()
+# measurement = SIPS(image_stack, frame_rate, pixel_size, flat=flat_field_average, dark=dark_field_average)
