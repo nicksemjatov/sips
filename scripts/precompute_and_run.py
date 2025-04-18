@@ -8,17 +8,17 @@ from pathlib import Path
 as long as it can be converted into 3 dimensional numpy stacks (x, y, z) and provided data is greyscale."""
 
 
-flat_start_image = 0  # start image of flat field recording
-flat_end_image = 50  # end frame of flat field recording
-start_image = 0  # start image number for image analysis
-end_image = 1000  # end image number for image analysis
-frame_rate = 6000  # frame rate of radiography data (necessary for TKViewer to determine image time)
+flat_start_image = 3570  # start image of flat field recording
+flat_end_image = 3580  # end frame of flat field recording
+start_image = 150  # start image number for image analysis
+end_image = 800  # end image number for image analysis
+frame_rate = 25000  # frame rate of radiography data (necessary for TKViewer to determine image time)
 pixel_size = 2.7  # pixel size of radiography data (necessary for TKViewer to determine image size)
 
 # load data from folder structure
-parent_directory: str = r"/run/media/nsemjatov/Semjatov eNVME/2023-07 DESY MM-AZ3 P61A/Radiographiedaten/MM CMSX4 AZ3BV1/"
-files = ["1557", "1730", "1732"]
-data_path = str(Path(parent_directory, "samples", files[0] + ".cine"))
+parent_directory: str = r"/mnt/data/Arbeitsdokumente/TEMP/point melt desy/"
+files = ["536", "549", "552"]
+data_path = str(Path(parent_directory, "sample", files[0] + ".cine"))
 flat_field_path = str(Path(parent_directory, "flat", files[1] + ".cine"))
 dark_field_path = str(Path(parent_directory, "dark", files[2] + ".cine"))
 
@@ -44,17 +44,16 @@ for j in tqdm(range(image_stack.shape[2]), ncols=75):
     image_stack[:, :, j] = corrected_image
 
 # crop data to FOV before loading UI
-# rotation_angle = 0
-# x_left = 140
-# x_right = 912
-# y_top = 121
-# y_bot = 681
-#
-# # rotate and crop the image to extract relevant area
-# if rotation_angle != 0.0:
-#     for j in tqdm(range(image_stack.shape[2]),ncols=75):
-#         image_stack[:, :, j] = shf.rotate_image(image_stack[:, :, j], rotation_angle)
-# image_stack = image_stack[y_top:y_bot, x_left:x_right, :]
+#rotation_angle = 0
+#x_left = 106
+#x_right = 833
+#y_top = 21
+#y_bot = 534
+# rotate and crop the image to extract relevant area
+#if rotation_angle != 0.0:
+#    for j in tqdm(range(image_stack.shape[2]),ncols=75):
+ #       image_stack[:, :, j] = shf.rotate_image(image_stack[:, :, j], rotation_angle)
+#image_stack = image_stack[y_top:y_bot, x_left:x_right, :]
 
 measurement = SIPS(image_stack, frame_rate, pixel_size, flat=flat_field_average, dark=dark_field_average)
 
