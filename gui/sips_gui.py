@@ -400,7 +400,7 @@ class SIPS:
                                                 font=self.fontsetting)
         self.clahe_clip_limit_value = self.clahe_clip_limit_default
         self.clahe_clip_limit_label = tk.Label(self.tab1, height=label_h, text=f"clip limit:", font=self.fontsetting)
-        self.clahe_clip_limit_scale = tk.Scale(master=self.tab1, orient="horizontal", from_=0, to=50, resolution=0.1,
+        self.clahe_clip_limit_scale = tk.Scale(master=self.tab1, orient="horizontal", from_=0, to=100, resolution=0.1,
                                                showvalue=True, command=self.adjust_clahe_clip_limit_value,
                                                sliderlength=30, font=self.fontsetting,
                                                activebackground='green')

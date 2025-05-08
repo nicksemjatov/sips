@@ -87,7 +87,7 @@ To create a portable executable of this project, use pyinstaller by running the 
 subdirectory:
 
 ``
-pyinstaller start_SIA.py --onefile --windowed
+pyinstaller start_SIPS.py --onefile --windowed
 ``
 
 This will create a single file executable (for the OS on which you executed the command). Make sure to store the
