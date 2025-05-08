@@ -101,7 +101,7 @@ other external drive.
 This project is authored and maintained by **Nick Semjatov** (*nick.semjatov@freenet.de*).
 If you want to use this project for your own work or research and have questions, feel free to contact me.
 
-If you have used this project and found it useful for your own published work, please reference it in your work by
-citing the following article:
+If you have used this project and found it useful for your own published work, please consider referencing it in your
+work by citing the following article:
 
 *Publication follows*
